@@ -14,6 +14,7 @@
   "dependencies": {
     "@coinbase/coinbase-sdk": "^0.10.0",
     "@lit-protocol/lit-node-client": "^6.11.1",
-    "@waku/core": "^0.0.33"
+    "@waku/core": "^0.0.33",
+    "ethers": "^6.13.4"
   }
 }
