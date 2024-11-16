@@ -14,6 +14,9 @@ abstract contract IntentRegister is Staking {
   mapping (uint256 => address ) private _nodes;
   // Address of user for intentNum
   mapping (uint256 => address ) private _userIntent;
+  // Closed intent number, if false intent is open
+  mapping (uint256 => bool) private _closedIntent;
+
   // Number of all intents
   uint256 private _intents;
   // Number of opened intents
@@ -65,7 +68,6 @@ abstract contract IntentRegister is Staking {
     require(msg.sender == _userIntent[intentNum]);
     _staking.lockTokens(100, 1, user);
 
-
   }
 
   // Do an intent step for an open intent 
@@ -78,18 +80,13 @@ abstract contract IntentRegister is Staking {
 
   }
 
-  //Do next intent step
-  function intentStep(uint256 intentNum, address user) public {
-    
-
-    
-  }
-
   // Close after intent is closed. Use getRewards() and send to user of intent
 
   // Add intent network fees. 
   // here once an intent is closed, the node assigned to intent is rewarded 1000 USDC*
   function getRewards(uint256 intentNum, address user) public {
+    require(_closedIntent[intentNum] == false);
+    require(msg.sender == _nodes[intentNum]);
     _staking.getRewards(user);
     _staking.release(user);
   }

@@ -12,6 +12,7 @@
   "author": "Jimmy Debe",
   "license": "GPL-3.0",
   "dependencies": {
+    "@coinbase/coinbase-sdk": "^0.10.0",
     "@lit-protocol/lit-node-client": "^6.11.1",
     "@waku/core": "^0.0.33"
   }
