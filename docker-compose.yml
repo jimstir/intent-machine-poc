@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  node1:
+    build: .
+    container_name: nwaku_node1
+    volumes:
+      - ./config/node1.toml:/config/node.toml
+    ports:
+      - "60000:60000"  # Replace with ports defined in node1.toml
+    command: ["--config", "/config/node.toml"]
+
+  node2:
+    build: .
+    container_name: nwaku_node2
+    volumes:
+      - ./config/node2.toml:/config/node.toml
+    ports:
+      - "60001:60001"  # Replace with ports defined in node2.toml
+    command: ["--config", "/config/node1.toml"]
+
+  node3:
+    build: .
+    container_name: nwaku_node3
+    volumes:
+      - ./config/node3.toml:/config/node.toml
+    ports:
+      - "60002:60002"  # Replace with ports defined in node3.toml
+    command: ["--config", "/config/node2.toml"]

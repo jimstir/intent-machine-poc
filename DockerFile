@@ -1,0 +1,29 @@
+# Start from the nwaku base image
+FROM ghcr.io/waku-org/nwaku:latest
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the configuration files for the three nodes
+COPY config1.toml /app/
+COPY config2.toml /app/
+COPY config3.toml /app/
+
+# Copy the Node.js listener script and any related files
+COPY listener.js /app/
+
+# Install Node.js and npm if needed (assuming it's not already included)
+RUN apk add --no-cache nodejs npm
+
+# Install dependencies for the Node.js application
+RUN npm install
+
+# Expose the ports for each node (adjust these ports as needed)
+EXPOSE 6001 8001 6002 8002 6003 8003
+
+# Copy and make the start script executable
+COPY start.sh /app/
+RUN chmod +x /app/start.sh
+
+# Start the container with the script that launches nwaku nodes and the Node.js app
+CMD ["/backend/intentNode/start.sh"]
