@@ -1,0 +1,17 @@
+{
+  "name": "poc-intent-machine",
+  "version": "1.0.0",
+  "description": "\"A proof of concept intent machine protocol with a focus to service web2 based applications.\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blockchain"
+  ],
+  "author": "Jimmy Debe",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "@waku/core": "^0.0.33"
+  }
+}
