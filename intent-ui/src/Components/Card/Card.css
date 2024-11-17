@@ -1,0 +1,57 @@
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    min-width: 300px;
+    max-width: 910px; /* Maximum width of the card */
+    width: 700px;
+    margin: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    overflow-y: auto; /* Enables vertical scroll if content exceeds height */
+    height: auto; /* Allows the card to grow based on content */
+    color: #0e0e0e; /* Replace with your preferred text color */
+    font-family: Arial, sans-serif; /* Replace with your preferred font */
+    font-size: 16px;
+  }
+
+  .card h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #865656; /* Replace with your preferred text color */
+    font-family: Arial, sans-serif;
+  }
+  
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: 100vh; /* Full viewport height */
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+  }
+  
+  /* Content styling for items within the card */
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds spacing between each item */
+  }
+  
+  input {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
